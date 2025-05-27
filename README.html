@@ -1,0 +1,66 @@
+<div class="article-content"><p>The <a href="https://www.bettlink.com/product/stmicroelectronics-stm32f103rbt6-12072207" target="_blank" rel="noopener"><strong>STM32F103RBT6</strong></a> is a 32-bit ARM Cortex-M3 microcontroller from <a href="https://www.bettlink.com/manufacturer/stmicroelectronics" target="_blank" rel="noopener">STMicroelectronics</a>. With 128KB of Flash, 20KB SRAM, rich peripheral support, and a 64-pin LQFP package, it's perfect for intermediate to advanced embedded systems. Below are five inspiring projects that showcase the power and flexibility of this MCU.</p>
+<h2><a id="head1"></a>1. Motor Speed Control System with PWM and Encoder</h2>
+<p>Using the STM32F103RBT6’s advanced timer capabilities, you can build a precise DC motor controller. PWM outputs adjust motor speed, while an incremental rotary encoder provides real-time feedback. This is ideal for robotics and industrial control systems.</p>
+<ul>
+<li><strong>Peripherals used:</strong> TIM1, TIM2, GPIO, EXTI</li>
+<li><strong>Tools:</strong> STM32CubeIDE, ST-Link V2</li>
+</ul>
+<pre><code>// Example: Basic PWM on TIM2 Channel 1
+TIM_OCInitTypeDef TIM_OCInitStructure;
+TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+TIM_OCInitStructure.TIM_Pulse = 500;
+TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+TIM_OC1Init(TIM2, &amp;TIM_OCInitStructure);
+</code></pre>
+<h2><a id="head2"></a>2. IoT Sensor Node with WiFi and MQTT</h2>
+<p>Connect the STM32F103RBT6 to an ESP8266/ESP01 over UART to create a low-cost IoT device. Collect sensor data using the ADC and transmit readings to the cloud using MQTT. Great for home automation and environmental monitoring projects.</p>
+<ul>
+<li><strong>Peripherals used:</strong> ADC1, USART1</li>
+<li><strong>Cloud platforms:</strong> ThingSpeak, HiveMQ, Mosquitto</li>
+</ul>
+<pre><code>// Example: Send serial data to ESP8266
+char msg[] = "AT CIPSEND=18\r\n";
+HAL_UART_Transmit(&amp;huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+</code></pre>
+<h2><a id="head3"></a>3. USB HID Device – Custom Keyboard or Mouse</h2>
+<p>With its USB Full-Speed peripheral, STM32F103RBT6 can emulate a Human Interface Device. Create a custom macro keyboard, game controller, or mouse. You’ll work with USB descriptors and endpoint management.</p>
+<ul>
+<li><strong>Peripherals used:</strong> USB FS, GPIO</li>
+<li><strong>Tools:</strong> STM32 USB Device Library, STM32CubeMX</li>
+</ul>
+<pre><code>// Example: HID report descriptor snippet
+0x05, 0x01, // Usage Page (Generic Desktop)
+0x09, 0x06, // Usage (Keyboard)
+0xA1, 0x01, // Collection (Application)
+// ... continue descriptor structure
+</code></pre>
+<h2><a id="head4"></a>4. Real-Time Data Logger with SD Card and TFT Display</h2>
+<p>Build a system that reads analog data (like temperature, voltage, or current), logs it to an SD card, and displays it in real-time on a TFT screen. This combines SPI, ADC, and file system handling (FATFS).</p>
+<ul>
+<li><strong>Peripherals used:</strong> SPI1, ADC1, GPIO</li>
+<li><strong>Libraries:</strong> FATFS, uGFX or TouchGFX</li>
+</ul>
+<h2><a id="head5"></a>5. RS485-Based Industrial Communication Node</h2>
+<p>Design a robust industrial communication device using STM32F103RBT6 with an external MAX485 transceiver. Support Modbus RTU protocol over RS485 for real-world machine integration.</p>
+<ul>
+<li><strong>Peripherals used:</strong> USART2, GPIO, TIM4</li>
+<li><strong>Use case:</strong> PLCs, smart meters, sensor networks</li>
+</ul>
+<h2><a id="head6"></a>Bonus: STM32F103RBT6 vs STM32F103C8T6</h2>
+<p>Both MCUs share many similarities, including the same core and peripherals. However, STM32F103RBT6 offers:</p>
+<ul>
+<li>Double the Flash memory (128KB vs. 64KB)</li>
+<li>More GPIOs due to 64-pin package</li>
+<li>Greater flexibility for multitasking and bootloader integration</li>
+</ul>
+<h2><a id="head7"></a>Conclusion</h2>
+<p>The <a href="https://www.bettlink.com/product/stmicroelectronics-stm32f103rbt6-12072207" target="_blank" rel="noopener">STM32F103RBT6 microcontroller</a> is an excellent choice for both educational and commercial embedded development. Its performance, I/O capabilities, and ST’s development ecosystem make it perfect for diverse project types. Whether you're logging data, controlling motors, or building a USB peripheral, this chip delivers.</p>
+<p><em>Download the official <a href="https://www.st.com/resource/en/datasheet/stm32f103rb.pdf" target="_blank" rel="noopener">STM32F103RBT6 datasheet</a> to learn more and start building!</em></p>
+<h2><a id="head8"></a>Frequently Asked Questions (FAQ)</h2>
+<h3>What is the difference between STM32F103RBT6 and <a href="https://www.bettlink.com/product/stmicroelectronics-stm32f103c8t6-12072180" target="_blank" rel="noopener">STM32F103C8T6</a>?</h3>
+<p>The STM32F103RBT6 offers 128KB of Flash and a 64-pin package, while the STM32F103C8T6 has 64KB Flash and a 48-pin package. RBT6 provides more GPIOs and code space for complex applications.</p>
+<h3>Can I use STM32F103RBT6 with STM32CubeIDE and ST-Link?</h3>
+<p>Yes. STM32F103RBT6 is fully compatible with STM32CubeIDE and can be programmed using ST-Link V2. The MCU is supported in STM32CubeMX for graphical configuration.</p>
+<h3>What development boards use the STM32F103RBT6?</h3>
+<p>Several Blue Pill-style or custom STM32 boards include the STM32F103RBT6. You can also find it on some STM32F1 Nucleo boards and industrial controller modules.</p></div>
